@@ -1,0 +1,180 @@
+.my-15 {
+    margin: 15rem 0;
+}
+
+.my-10 {
+    margin: 10rem 0;
+}
+
+.mytop-10 {
+    margin-top: 10rem;
+}
+
+.posrel {
+    position: relative;
+}
+
+.posabs-l {
+    position: absolute;
+    left: 0;
+}
+
+.posabs-r {
+    position: absolute;
+    right: 0;
+}
+
+.posabs-t {
+    position: absolute;
+    top: 0;
+}
+
+.posabs-b {
+    position: absolute;
+    bottom: 0;
+}
+
+.bg-primary {
+    background-color: var(--color-primary);
+}
+
+.bg-secondary {
+    background-color: var(--color-secondary);
+}
+
+h1 {
+    font-size: 7rem;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 4rem;
+    font-weight: 700;
+}
+
+h3 {
+    font-size: 3rem;
+}
+
+h4 {
+    font-size: 2rem;
+    text-transform: uppercase;
+    padding: 1rem 0;
+}
+
+h5 {
+    font-size: 1.7rem;
+    padding-bottom: 2rem;
+}
+
+p, a {
+    font-size: 1.5rem;
+    line-height: 1.8;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.btn {
+    font-family: 'Raleway', sans-serif;
+    padding: 1rem 3.5rem;
+    border: none;
+    border-radius: 0.2rem;
+    font-size: 1.5rem;
+    color: var(--color-secondary);
+    transition: all 0.5s;
+    border: .1rem solid var(--color-secondary);
+    /* margin-top: .5rem; */
+    outline: none;
+}
+
+.icons > * {
+    padding: 1rem;
+    transition: all 0.5s;   
+    background-color: var(--color-secondary); 
+    color: white
+}
+
+.container {
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.grid {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    height: auto;
+}
+
+@media screen and (max-width: 1000px) {
+
+    h3 {
+        font-size: 2rem;
+    }
+}
+
+@media screen and (max-width: 700px) {
+
+    h1 {
+        font-size: 4rem;
+    }
+    
+    h2 {
+        font-size: 2.5rem;
+    }
+    
+    h4 {
+        font-size: 1.8rem;
+    }
+    
+    h5 {
+        font-size: 1.5rem;
+    }
+
+    .my-15 {
+        margin: 15rem 0 5rem;
+    }
+
+    .my-10 {
+        margin: 1rem 0 10rem;
+    }
+
+    .btn {
+        font-family: 'Raleway', sans-serif;
+        padding: .5rem 3.5rem;
+        border: none;
+        border-radius: 0.2rem;
+        font-size: 1rem;
+    }
+
+    .icons > * {
+        padding: .5rem;
+        transition: all 0.5s;   
+        background-color: var(--color-secondary); 
+        color: white
+    }
+
+    .mytop-10 {
+        margin-top: 5rem;
+    }
+    
+}
+
+@media screen and (max-width: 500px) {
+
+    p, a {
+        font-size: 1rem;
+    }
+
+}
