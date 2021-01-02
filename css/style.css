@@ -17,21 +17,29 @@ html {
 body {
     color: var(--color-secondary);
     overflow-x: hidden;
-    max-height: 100vh;
+    width: 100%;
 }
 
 /* Header */
 
 .header {
-    height: 10vh;
-    /* position: fixed;
+    height: 10vh;  
+}
+
+.header-sticky {
+    position: fixed;
     background-color: white;
-    width: 100%;
-    z-index: 3; */
+    width: 100vw;
+    z-index: 3;
+    top: -10vh;
+    transform: translateY(99%);
+    transition: transform .5s; 
 }
 
 .header__logo img {
     width: 70%;
+    position: relative;
+    z-index: 10;
 }
 
 .header .flex {
@@ -44,13 +52,43 @@ body {
     margin: .7rem 0;
 }
 
+.nav__menu {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    padding: 0 10%;
+    z-index: 5;
+    flex-direction: column;
+    align-items: flex-start;
+    transition: all .5s;
+    left: 100%;
+}
+
+.active {
+    left: 0;
+    visibility: visible;
+    overflow: hidden;
+}
+
+.header .flex .nav__menu {
+    justify-content: center;
+}
+
+.nav__menu li {
+    opacity: 0;
+}
+
+.nav__menu li a {
+    font-size: 3rem;
+}
+
 .short {
     width: 2rem;
 }
 
 .nav__leftAccent {
     width: 5vw;
-    min-height: 100vh;
+    height: 100vh;
 }
 
 /* Hero */
@@ -426,6 +464,10 @@ body {
     padding: 4rem 0;
     text-align: center;
     align-content: center;
+}
+
+.resize-animation-stopper {
+    transition: none;
 }
 
 @media screen and (max-width: 1250px) {
@@ -833,6 +875,15 @@ body {
         width: 100%;
         align-self: flex-end;
         justify-self: start;
+    }
+
+    .hero__image-plate {
+        background-size: contain;
+        background-repeat: no-repeat;
+        top: 95%;
+        z-index: 1;
+        max-width: 25rem;
+        opacity: .2;
     }
 
 }
