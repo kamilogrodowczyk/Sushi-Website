@@ -34,9 +34,7 @@
     bottom: 0;
 }
 
-.bg-primary {
-    background-color: var(--color-primary);
-}
+
 
 .bg-secondary {
     background-color: var(--color-secondary);
@@ -105,7 +103,7 @@ a {
 
 .flex {
     display: flex;
-    /* justify-content: center; */
+    justify-content: center;
     align-items: center;
     height: 100%;
 }

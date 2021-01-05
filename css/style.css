@@ -1,3 +1,5 @@
+@import url("utilities.css");
+
 :root {
     --color-primary: #ffe5b4;
     --color-secondary: #333;
@@ -14,10 +16,17 @@ html {
     padding: 0;
 }
 
+.bg-primary {
+    background-color: var(--color-primary);
+}
+
 body {
     color: var(--color-secondary);
-    overflow-x: hidden;
     width: 100%;
+}
+
+.wrapper {
+    overflow-x: hidden;
 }
 
 /* Header */
@@ -30,30 +39,92 @@ body {
     position: fixed;
     background-color: white;
     width: 100vw;
-    z-index: 3;
-    top: -10vh;
-    transform: translateY(99%);
-    transition: transform .5s; 
+    z-index: 30;
+    top: 0;
+    transition: all .5s;
 }
 
-.header__logo img {
+.header__image {
     width: 70%;
-    position: relative;
     z-index: 10;
+}
+
+.filtred {
+    filter: invert(1);
+    transition-delay: .3s;
+    transition-property: filter;
 }
 
 .header .flex {
     justify-content: space-between;
 }
 
+.nav {
+    width: 4rem;
+    height: 4rem;
+}
+
+.toggler {
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: 99;
+}
+
+.nav__hamburger {
+    top: -100%;
+    z-index: 20;
+    width: 100%;
+    height: 100%; 
+    transition: all 1s;
+}
+
+.toggler:checked + .nav__hamburger > .nav__line {
+    background-color: transparent;
+    transition: all 1s;
+    width: 100%;
+}
+
+.toggler:checked + .nav__hamburger > .nav__line::before {
+    background-color: var(--color-primary);
+    transform: rotate(45deg);
+    top: 0;
+}
+
+.toggler:checked + .nav__hamburger > .nav__line::after {
+    background-color: var(--color-primary);
+    width: 100%;
+    transform: rotate(-45deg);
+    top: 0;
+}
+
 .nav__line {
-    width: 3rem;
+    z-index: 20;
+    width: 100%;
     height: .3rem;
-    margin: .7rem 0;
+    top: 50%;
+}
+
+.nav__line::before, 
+.nav__line::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: -1rem;
+    z-index: 20;
+    width: 100%;
+    height: .3rem;
+    background-color: inherit;
+    transition: all .2s .2s;
+}
+
+.nav__line::after {
+    top: 1rem;
+    right: 0;
+    width: 70%;
 }
 
 .nav__menu {
-    position: absolute;
     height: 100vh;
     width: 100vw;
     padding: 0 10%;
@@ -61,29 +132,36 @@ body {
     flex-direction: column;
     align-items: flex-start;
     transition: all .5s;
-    left: 100%;
+    transform: scaleX(0);
+    transform-origin: right;
+}
+
+.nav__menu > * {
+    visibility: hidden;
+}
+
+.nav > .toggler:checked ~ .nav__menu {
+    transform: scaleX(1);
+}
+
+.nav > .toggler:checked ~ .nav__menu > * {
+    visibility: visible;
+    transition: .5s .5s;
 }
 
 .active {
-    left: 0;
+    transform: scaleX(1);
     visibility: visible;
-    overflow: hidden;
-}
-
-.header .flex .nav__menu {
-    justify-content: center;
-}
-
-.nav__menu li {
-    opacity: 0;
+    overflow-x: hidden;
 }
 
 .nav__menu li a {
     font-size: 3rem;
+    color: white;
 }
 
-.short {
-    width: 2rem;
+.header .flex .nav__menu {
+    justify-content: center;
 }
 
 .nav__leftAccent {
@@ -107,10 +185,6 @@ body {
 .hero__title h1 {
     align-self: flex-end;
 }
-
-/* .hero__title p {
-    margin-right: 30rem;
-} */
 
 .hero__info {
     grid-template-columns: repeat(7, minmax(15rem, 19rem));

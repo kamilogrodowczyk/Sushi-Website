@@ -13,21 +13,22 @@
     <link rel='stylesheet' href='css/fontawesome.min.css'>
 </head>
 <body>
-
+    
     <header>
-        <div class="header">
+        <div class="header posrel">
             <div class="container flex">
                 <div class="header__logo">
                     <a href="">
-                        <img class="header__image" src="img/logo-katei.png" alt="katei">
+                        <img class="header__image posrel" src="img/logo-katei.png" alt="katei">
                     </a>
                 </div>
                 <nav>
                     <div class="nav">
-                        <div class="nav__line bg-secondary"></div>
-                        <div class="nav__line bg-secondary"></div>
-                        <div class="nav__line bg-secondary short"></div>
-                        <ul class="nav__menu flex bg-secondary posabs-t posabs-l">
+                        <input type="checkbox" class="toggler posrel">
+                        <div class="nav__hamburger posrel">
+                            <div class="nav__line bg-secondary posrel"></div>
+                        </div>
+                        <ul class="nav__menu flex bg-secondary posabs-t posabs-r">
                             <li><a href="#">Home</a></li>
                             <li><a href="#">Menu Katei</a></li>
                             <li><a href="#">Aktualności</a></li>
@@ -297,7 +298,6 @@
             </div>
         </div>
     </footer>
-
 
 <script src="app.js"></script> 
 </body>
