@@ -85,7 +85,6 @@ a {
     color: var(--color-secondary);
     transition: all 0.5s;
     border: .1rem solid var(--color-secondary);
-    /* margin-top: .5rem; */
     outline: none;
 }
 

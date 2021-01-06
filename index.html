@@ -7,6 +7,12 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='css/utilities.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='css/style.css'>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel='stylesheet' href='css/all.min.css'>
@@ -48,7 +54,8 @@
                 <div class="hero__title grid">
                     <h1>Sushi Katei</h1>
                     <h4>Katei znaczy: "Dom, Rodzina"</h4>
-                    <p>Taka nazwa zobowiązuje, dlatego chcemy żeby każdy nasz Gość czuł się <br/> jak u siebie i aby mógł spędzić miłe chwile w naszej restauracji.</p>
+                    <p class="device">Taka nazwa zobowiązuje, dlatego chcemy żeby każdy nasz Gość czuł się <br/> jak u siebie i aby mógł spędzić miłe chwile w naszej restauracji.</p>
+                    <p class="mobile">Taka nazwa zobowiązuje, dlatego chcemy <br/> żeby każdy nasz Gość czuł się jak u siebie <br/> i aby mógł spędzić miłe chwile w naszej restauracji.</p>
                 </div>
                 <div class="hero__info grid">
                     <div class="hero__elements hero__elements--adress bg-secondary posrel">
@@ -271,6 +278,9 @@
                 <div class="delivery__blocks--big bg-primary posabs-b"></div>
             </div>
         </section>
+        <section>
+            <div id="map" class="posrel"></div>
+        </section>
     </main>
     <footer>
         <div class="footer">
@@ -300,5 +310,7 @@
     </footer>
 
 <script src="app.js"></script> 
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxzuJrEUn-8QZALz63V1zWezo-h8nCqEA&callback=initMap"
+  type="text/javascript"></script>
 </body>
 </html>
