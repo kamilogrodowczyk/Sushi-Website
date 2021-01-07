@@ -27,26 +27,56 @@
 //         console.log(walk)
 // });
 
-var mymap = L.map('map', { scrollWheelZoom: false }).setView([52.28593654278595, 16.85675418654572], 19);
-
-L.tileLayer('https://api.maptiler.com/maps/pastel/{z}/{x}/{y}.png?key=lQ3MzVJ2ft3u1MukWcCe', {
-    attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>',
-    maxZoom: 28,
-    tileSize: 512,
-    zoomOffset: -1
-}).addTo(mymap);
-
-var markerIcon = L.icon ({
-    iconUrl: 'img/marker.png',
-    iconSize: [42, 50],
-    iconAnchor: [20, 49],
-    popupAnchor: [0, -50]
+mapboxgl.accessToken = 'pk.eyJ1Ijoia2FtaWwtZ2FyZGVuIiwiYSI6ImNram1yeTQ5YTEwdmkyc3MycnQ1aWptaXUifQ.csipJUbLa2PF9ab2uYLnGA';
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/light-v10',
+    center: [16.856721782929363, 52.2859369001717],
+    maxZoom: 20,
+    zoom: 18,
 })
 
-var marker = L.marker([52.28593654278595, 16.85675418654572], {icon: markerIcon}).addTo(mymap);
+
+  
+
+// var geojson = {
+//     type: 'FeatureCollection',
+//     features: [{
+//       type: 'Feature',
+//       geometry: {
+//         type: 'Point',
+//         coordinates: [16.856721782929363, 52.2859369001717]
+//       },
+//       properties: {
+//         title: 'Katei-Sushi',
+//         description: 'ul. Rynek 11, Puszczykowo'
+//       }
+//     }]
+// };
+
+// geojson.features.forEach(function(marker) {
+
+//     // create a HTML element for each feature
+//     var el = document.createElement('div');
+//     el.className = 'marker';
+  
+//     // make a marker for each feature and add to the map
+//     var marker = new mapboxgl.Marker(el) 
+//       .setLngLat(marker.geometry.coordinates)
+//       .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
+//       .setHTML('<p>' + marker.properties.title + '</p><p>' + marker.properties.description + '</p>'))
+//       .addTo(map);
+//   });
 
 
-marker.bindPopup('Katei Sushi <br/> ul. Rynek 11, Puszczykowo');
+// map.doubleClickZoom.disable();
+// map.addControl(new mapboxgl.NavigationControl());
+// map.scrollZoom.disable();
+
+
+
+
+
 
 
 let resizeTimer;

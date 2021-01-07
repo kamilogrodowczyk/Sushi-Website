@@ -508,6 +508,30 @@ body {
     z-index: 0;
 }
 
+.marker {
+    background-image: url('../img/marker.png');
+    background-size: cover;
+    width: 50px;
+    height: 60px;
+    cursor: pointer;
+  }
+
+  .mapboxgl-popup {
+    max-width: 150px;
+    border-radius: 2px;
+  }
+  
+  .mapboxgl-popup-content {
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  .mapboxgl-popup-close-button {
+      outline: none;
+      border: none;
+      transform: scale(1.5);
+  }
+
 .footer__container--black {
     color: white;
     grid-template-columns: repeat(4, 1fr);
