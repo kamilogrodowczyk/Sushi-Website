@@ -1,82 +1,96 @@
-// const gallery = document.querySelector('.gallery');
+const gallery = document.querySelector('.gallery');
 
-// let isDown = false;
-// let point;
-// let scrollLeft;
+let isDown = false;
+let point;
+let scrollLeft;
 
-// gallery.addEventListener('mousedown', (e) => {
-//     isDown = true;
-//     point = e.pageX - gallery.offsetLeft;
-//     scrollLeft = gallery.scrollLeft;
-// });
+gallery.addEventListener('mousedown', (e) => {
+    isDown = true;
+    point = e.pageX - gallery.offsetLeft;
+    scrollLeft = gallery.scrollLeft;
+    gallery.classList.add('grabbing');
+});
 
-// gallery.addEventListener('mouseleave', () => {
-//     isDown = false;
-// });
+gallery.addEventListener('mouseleave', () => {
+    isDown = false;
+});
 
-// gallery.addEventListener('mouseup', () => {
-//     isDown = false;
-// });
+gallery.addEventListener('mouseup', () => {
+    isDown = false;
+    gallery.classList.remove('grabbing');
+});
 
-// gallery.addEventListener('mousemove', (e) => {
-//     if(!isDown) return; 
-//         e.preventDefault();
-//         const x = e.pageX - gallery.offsetLeft;
-//         const walk = x - point;
-//         gallery.scrollLeft = scrollLeft - walk;
-//         console.log(walk)
-// });
+gallery.addEventListener('mousemove', (e) => {
+    if(!isDown) return; 
+        e.preventDefault();
+        const x = e.pageX - gallery.offsetLeft;
+        const walk = x - point;
+        gallery.scrollLeft = scrollLeft - walk;
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 mapboxgl.accessToken = 'pk.eyJ1Ijoia2FtaWwtZ2FyZGVuIiwiYSI6ImNram1yeTQ5YTEwdmkyc3MycnQ1aWptaXUifQ.csipJUbLa2PF9ab2uYLnGA';
 var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/light-v10',
     center: [16.856721782929363, 52.2859369001717],
-    maxZoom: 20,
-    zoom: 18,
-})
+    minZoom: 2,
+    maxZoom: 19,
+    zoom: 17,
+})  
 
+var geojson = {
+    type: 'FeatureCollection',
+    features: [{
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [16.856721782929363, 52.2859369001717]
+      },
+      properties: {
+        title: 'Katei-Sushi',
+        description: 'ul. Rynek 11, Puszczykowo'
+      }
+    }]
+};
 
+geojson.features.forEach(function(marker) {
+
+    var el = document.createElement('div');
+    el.className = 'marker';
   
+    new mapboxgl.Marker(el, {anchor: 'bottom'}) 
+      .setLngLat(marker.geometry.coordinates)
+      .setPopup(new mapboxgl.Popup({ offset: 55 })
+      .setHTML('<p>' + marker.properties.title + '</p><p>' + marker.properties.description + '</p>'))
+      .addTo(map);
+    });
 
-// var geojson = {
-//     type: 'FeatureCollection',
-//     features: [{
-//       type: 'Feature',
-//       geometry: {
-//         type: 'Point',
-//         coordinates: [16.856721782929363, 52.2859369001717]
-//       },
-//       properties: {
-//         title: 'Katei-Sushi',
-//         description: 'ul. Rynek 11, Puszczykowo'
-//       }
-//     }]
-// };
-
-// geojson.features.forEach(function(marker) {
-
-//     // create a HTML element for each feature
-//     var el = document.createElement('div');
-//     el.className = 'marker';
-  
-//     // make a marker for each feature and add to the map
-//     var marker = new mapboxgl.Marker(el) 
-//       .setLngLat(marker.geometry.coordinates)
-//       .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
-//       .setHTML('<p>' + marker.properties.title + '</p><p>' + marker.properties.description + '</p>'))
-//       .addTo(map);
-//   });
-
-
-// map.doubleClickZoom.disable();
-// map.addControl(new mapboxgl.NavigationControl());
-// map.scrollZoom.disable();
-
-
-
-
-
+map.doubleClickZoom.disable();
+map.addControl(new mapboxgl.NavigationControl());
+map.scrollZoom.disable();
 
 
 let resizeTimer;
