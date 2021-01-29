@@ -4,6 +4,8 @@ export default function slideGallery() {
 
     const images = imageAll.splice(1, imageAll.length - 2);
 
+    gallery.scrollLeft = (gallery.scrollWidth - gallery.clientWidth) / 2;
+
     let isDown = false;
     let point;
     let scrollLeft;
@@ -41,7 +43,7 @@ export default function slideGallery() {
                 bound(image);
         });
     })
-
+    
     function bound(element) {
         let rect = element.getBoundingClientRect()
         if(window.innerWidth > 1000) {

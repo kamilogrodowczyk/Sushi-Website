@@ -1,0 +1,23 @@
+{
+  "name": "Katei",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "browser-sync start --server --files '*.css, *.html, *.js'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kamilogrodowczyk/Sushi-Website.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kamilogrodowczyk/Sushi-Website/issues"
+  },
+  "homepage": "https://github.com/kamilogrodowczyk/Sushi-Website#readme",
+  "devDependencies": {
+    "browser-sync": "^2.26.13"
+  }
+}
